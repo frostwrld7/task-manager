@@ -166,7 +166,6 @@ export function DataTableRowActions<TData>({
 
   const editData = (key: string, value: string) => {
     taskData[key] = value
-    console.log(taskData)
   }
 
   const setAsTodo = () => {
