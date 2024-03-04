@@ -1,0 +1,29 @@
+// schema.prisma
+
+datasource db {
+  provider = "mongodb"
+  url      = env("DATABASE_URL")
+}
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+model Task {
+  id          String     @id @map("_id") @default(cuid())
+  publicId    String
+  title       String                                     
+  status      String                                    
+  label       String?                 
+  priority    String                
+  day         String 
+  time        String                   
+  userId      String?    
+}
+
+model User {
+  id        String  @id @map("_id") @default(cuid())
+  username  String  @unique                
+  password  String?        
+  email     String? @unique                         
+}
